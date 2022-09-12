@@ -1,9 +1,22 @@
 function Showtodolist(){
-return(
-    <div>
-    <h1>SHow to do lists</h1>
-    {window.localStorage.getItem(1)}
-    </div>
-)
+      var task=[]
+    for (let i = 0; i < window.localStorage.length; i++){
+task.push(window.localStorage.getItem(i));
+    }
+    var newarray=[];
+   newarray =  task.map(function(d, idx){
+        return(
+        <li> {d}</li>
+        )
+    });
+
+    return (
+        <div>
+            <ul>
+                <li>
+          <h1>{newarray}</h1> 
+          </li>
+          </ul></div>
+    )
 }
 export default Showtodolist;
